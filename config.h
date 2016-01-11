@@ -24,9 +24,8 @@ static const Rule rules[] = {
 	{ "Gimp",       NULL,       NULL,       1 << 6,       False,       -1 },
 	{ "Inkscape",   NULL,       NULL,       1 << 7,       False,       -1 },
 	{ "Terminator", NULL,       NULL,       1 << 1,       False,       -1 },
-	// { "Iceweasel",  NULL,       NULL,       1 << 8,       False,       -1 },
 	{ "Emacs",      NULL,       NULL,       1 << 4,       False,       -1 },
-	{ "mplayer2",      NULL,       NULL,       1 << 8,       False,       -1 },
+	{ "mplayer2",   NULL,       NULL,       1 << 8,       False,       -1 },
 };
 
 /* layout(s) */
@@ -64,7 +63,7 @@ static const char *terminator[] = { "terminator", NULL, NULL, NULL,  "Terminator
 
 static Key keys[] = {
 	/* modifier                     key        function        argument */
-	{ MODKEY|ShiftMask,             XK_b,      togglebar,      {0} },
+	{ ALTMODKEY,                    XK_p,      spawn,          {.v = dmenucmd } },
 	{ ALTMODKEY,                    XK_m,      setlayout,      {.v = &layouts[2]} },
 	{ MODKEY,                       XK_0,      view,           {.ui = ~0 } },
 	{ MODKEY,                       XK_Return, zoom,           {0} },
@@ -77,12 +76,12 @@ static Key keys[] = {
 	{ MODKEY,                       XK_j,      focusstack,     {.i = +1 } },
 	{ MODKEY,                       XK_k,      focusstack,     {.i = -1 } },
 	{ MODKEY,                       XK_l,      setmfact,       {.f = +0.05} },
-	{ MODKEY,                       XK_p,      spawn,          {.v = dmenucmd } },
 	{ MODKEY,                       XK_period, focusmon,       {.i = +1 } },
 	{ MODKEY,                       XK_space,  setlayout,      {0} },
 	{ MODKEY,                       XK_t,      setlayout,      {.v = &layouts[0]} },
 	{ MODKEY|ShiftMask,             XK_0,      tag,            {.ui = ~0 } },
 	{ MODKEY|ShiftMask,             XK_Return, spawn,          {.v = termcmd } },
+	{ MODKEY|ShiftMask,             XK_b,      togglebar,      {0} },
 	{ MODKEY|ShiftMask,             XK_c,      killclient,     {0} },
 	{ MODKEY|ShiftMask,             XK_comma,  tagmon,         {.i = -1 } },
 	{ MODKEY|ShiftMask,             XK_period, tagmon,         {.i = +1 } },
@@ -99,6 +98,8 @@ static Key keys[] = {
 	TAGKEYS(                        XK_7,                      6)
 	TAGKEYS(                        XK_8,                      7)
 	TAGKEYS(                        XK_9,                      8)
+	/* mapping the letter key 'o' to easily toggle the terminator tag */
+	TAGKEYS(                        XK_o,                      1)
 	{ MODKEY|ShiftMask,             XK_q,      quit,           {0} },
 };
 
