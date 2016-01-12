@@ -31,7 +31,7 @@ static const Rule rules[] = {
 /* layout(s) */
 static const float mfact      = 0.55; /* factor of master area size [0.05..0.95] */
 static const int nmaster      = 1;    /* number of clients in master area */
-static const Bool resizehints = True; /* True means respect size hints in tiled resizals */
+static const Bool resizehints = False; /* True means respect size hints in tiled resizals */
 
 static const Layout layouts[] = {
 	/* symbol     arrange function */
@@ -54,6 +54,7 @@ static const Layout layouts[] = {
 
 /* commands */
 static const char *dmenucmd[] = { "dmenu_run", "-fn", font, "-nb", normbgcolor, "-nf", normfgcolor, "-sb", selbgcolor, "-sf", selfgcolor, NULL };
+static const char *rofiruncmd[] = { "rofi", "-show", "window", NULL };
 static const char *termcmd[]  = { "uxterm", NULL };
 /* runorraise programs */
 static const char *emacs[]      = { "emacs", NULL, NULL, NULL, "Emacs" };
@@ -63,7 +64,8 @@ static const char *terminator[] = { "terminator", NULL, NULL, NULL,  "Terminator
 
 static Key keys[] = {
 	/* modifier                     key        function        argument */
-	{ ALTMODKEY,                    XK_p,      spawn,          {.v = dmenucmd } },
+	/*{ ALTMODKEY,                    XK_p,      spawn,          {.v = dmenucmd } },*/
+	{ ALTMODKEY,                    XK_p,      spawn,          {.v = rofiruncmd } },
 	{ ALTMODKEY,                    XK_m,      setlayout,      {.v = &layouts[2]} },
 	{ MODKEY,                       XK_0,      view,           {.ui = ~0 } },
 	{ MODKEY,                       XK_Return, zoom,           {0} },
