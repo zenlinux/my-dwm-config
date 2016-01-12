@@ -54,7 +54,7 @@ static const Layout layouts[] = {
 
 /* commands */
 static const char *dmenucmd[] = { "dmenu_run", "-fn", font, "-nb", normbgcolor, "-nf", normfgcolor, "-sb", selbgcolor, "-sf", selfgcolor, NULL };
-static const char *rofiruncmd[] = { "rofi", "-show", "window", NULL };
+static const char *rofiruncmd[] = { "rofi", "-show", "run", NULL };
 static const char *termcmd[]  = { "uxterm", NULL };
 /* runorraise programs */
 static const char *emacs[]      = { "emacs", NULL, NULL, NULL, "Emacs" };
