@@ -17,15 +17,19 @@ static const Bool topbar            = True;     /* False means bottom bar */
 static const Bool statusmarkup      = True;     /* True means use pango markup in status message */
 
 /* tagging */
-static const char *tags[] = { "web", "Term", "files", "4", "Editor", "6", "Gimp", "Inkscape", "Office" };
+static const char *tags[] = { "1:web", "2:Term", "3:files", "4:Gvim", "5:Emacs", "6", "7:Gimp", "8:Inkscape", "9:Office" };
 
 static const Rule rules[] = {
 	/* class        instance    title       tags mask     isfloating   monitor */
-	{ "Gimp",       NULL,       NULL,       1 << 6,       False,       -1 },
-	{ "Inkscape",   NULL,       NULL,       1 << 7,       False,       -1 },
-	{ "Terminator", NULL,       NULL,       1 << 1,       False,       -1 },
-	{ "Emacs",      NULL,       NULL,       1 << 4,       False,       -1 },
-	{ "mplayer2",   NULL,       NULL,       1 << 8,       False,       -1 },
+	{ "Gimp",              NULL,       NULL,       1 << 6,       False,       -1 },
+	{ "Inkscape",          NULL,       NULL,       1 << 7,       False,       -1 },
+	{ "Terminator",        NULL,       NULL,       1 << 1,       False,       -1 },
+	{ "Transmission-gtk",  NULL,       NULL,       1 << 5,       False,       -1 },
+	{ "Uget-gtk",          NULL,       NULL,       1 << 5,       False,       -1 },
+	{ "chromium-browser",  NULL,       NULL,       1 << 3,       False,       -1 },
+	{ "Emacs",             NULL,       NULL,       1 << 4,       False,       -1 },
+	{ "Gvim",              NULL,       NULL,       1 << 3,       False,       -1 },
+	{ "mplayer2",          NULL,       NULL,       1 << 8,       False,       -1 },
 };
 
 /* layout(s) */
@@ -53,7 +57,7 @@ static const Layout layouts[] = {
 #define SHCMD(cmd) { .v = (const char*[]){ "/bin/sh", "-c", cmd, NULL } }
 
 /* commands */
-static const char *dmenucmd[] = { "dmenu_run", "-fn", font, "-nb", normbgcolor, "-nf", normfgcolor, "-sb", selbgcolor, "-sf", selfgcolor, NULL };
+/* static const char *dmenucmd[] = { "dmenu_run", "-fn", font, "-nb", normbgcolor, "-nf", normfgcolor, "-sb", selbgcolor, "-sf", selfgcolor, NULL };*/
 static const char *rofiruncmd[] = { "rofi", "-show", "run", NULL };
 static const char *termcmd[]  = { "uxterm", NULL };
 /* runorraise programs */
