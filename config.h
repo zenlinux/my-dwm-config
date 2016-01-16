@@ -65,12 +65,12 @@ static const char *emacs[]      = { "emacs", NULL, NULL, NULL, "Emacs" };
 static const char *browser[]    = { "iceweasel", NULL, NULL, NULL,  "Iceweasel" };
 static const char *terminator[] = { "terminator", NULL, NULL, NULL,  "Terminator" };
 
-
 static Key keys[] = {
 	/* modifier                     key        function        argument */
 	/*{ ALTMODKEY,                    XK_p,      spawn,          {.v = dmenucmd } },*/
-	{ ALTMODKEY,                    XK_p,      spawn,          {.v = rofiruncmd } },
+	{ 0,                            XK_Print,  spawn,    SHCMD("exec scrot -q 90 -t 25 '%Y-%m-%d-%H-%M-%S.png' -e 'mv $f ~/.scrots'") }, 
 	{ ALTMODKEY,                    XK_m,      setlayout,      {.v = &layouts[2]} },
+	{ ALTMODKEY,                    XK_p,      spawn,          {.v = rofiruncmd } },
 	{ MODKEY,                       XK_0,      view,           {.ui = ~0 } },
 	{ MODKEY,                       XK_Return, zoom,           {0} },
 	{ MODKEY,                       XK_Tab,    view,           {0} },
